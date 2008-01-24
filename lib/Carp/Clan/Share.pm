@@ -21,6 +21,7 @@ sub import {
     shift;
     my $caller = caller(0);
     my @arguments = @_;
+    $caller =~ s/::Carp$//; # If the user already named it Carp, use the parent of that.
     unshift @arguments, "^${caller}::";
 
     my $package = "${caller}::Carp";
@@ -41,6 +42,49 @@ sub import {
 }
 
 =head1 SYNOPSIS
+
+    package My::Namespace
+
+    use Carp::Clan::Share; # Now My::Namespace::Carp exists
+
+    ...
+
+    package My::Namespace::Module
+
+    use My::Namespace::Carp; # Acts like "use Carp::Clan qw/^My::Namespace::/;"
+
+    ...
+
+    package My::Other::Namespace;
+
+    # You can also pass options through to Carp::Clan
+    use Carp::Clan::Share qw/verbose/; # Now My::Namespace::Carp exists
+
+    ...
+
+    package My::Other::Namespace::Module
+
+    use My::Other::Namespace::Carp; # Acts like "use Carp::Clan qw/^My::Other::Namespace:: verbose/;"
+
+    ...
+
+=head1 DESCRIPTION
+
+This is a very lightweight helper module (actually just an import method) that will automagically create
+a __PACKAGE__::Carp module for you.
+
+Any arguments passed to the import (e.g. via use) method are forwarded along to Carp::Clan.
+
+NOTE: If you use this from a package ending with ::Carp, then it will use the parent of of that package
+as the target namespace
+
+    package My::Namespace::Carp;
+    
+    use Carp::Clan::Share;
+
+    package My::Namespace::Module
+
+    use My::Namespace::Carp; # Acts like "use Carp::Clan qw/^My::Namespace::/;"
 
 =head1 AUTHOR
 
