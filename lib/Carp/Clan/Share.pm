@@ -9,11 +9,11 @@ Carp::Clan::Share - Share your Carp::Clan settings with your whole Clan
 
 =head1 VERSION
 
-Version 0.01
+Version 0.011
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.011';
 
 require Carp::Clan;
 
@@ -45,7 +45,7 @@ sub import {
 
     package My::Namespace
 
-    use Carp::Clan::Share; # Now My::Namespace::Carp exists
+    use Carp::Clan::Share; # My::Namespace::Carp now exists
 
     ...
 
@@ -58,7 +58,7 @@ sub import {
     package My::Other::Namespace;
 
     # You can also pass options through to Carp::Clan
-    use Carp::Clan::Share qw/verbose/; # Now My::Namespace::Carp exists
+    use Carp::Clan::Share qw/verbose/; # My::Other::Namespace::Carp now exists
 
     ...
 
@@ -85,6 +85,10 @@ as the target namespace
     package My::Namespace::Module
 
     use My::Namespace::Carp; # Acts like "use Carp::Clan qw/^My::Namespace::/;"
+
+=head1 SEE ALSO
+
+L<Carp::Clan>, L<Carp>
 
 =head1 AUTHOR
 
