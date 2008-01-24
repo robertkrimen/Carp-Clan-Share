@@ -7,7 +7,7 @@ use t::Pack::Carp;
 #use Carp::Clan qw/^t::Pack:: verbose/;
 
 sub b {
-    croak "Glop!";
+    croak "Break!";
 }
 
 1;
