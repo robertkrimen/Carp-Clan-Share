@@ -5,7 +5,7 @@ use strict;
 
 =head1 NAME
 
-Carp::Clan::Share - The great new Carp::Clan::Share!
+Carp::Clan::Share - Share your Carp::Clan settings with your whole Clan
 
 =head1 VERSION
 
@@ -15,38 +15,32 @@ Version 0.01
 
 our $VERSION = '0.01';
 
+require Carp::Clan;
+
+sub import {
+    shift;
+    my $caller = caller(0);
+    my @arguments = @_;
+    unshift @arguments, "^${caller}::";
+
+    my $package = "${caller}::Carp";
+    my $pm = join("/", split m/::/, $package) . ".pm";
+    $INC{$pm} = 1;
+    eval "package $package;";
+
+    my $exporter;
+    {
+        no strict 'refs';
+        $exporter = *{"${package}::import"} = sub {
+            push @_, @arguments;
+            goto &Carp::Clan::import;
+        };
+    }
+
+    goto &$exporter;
+}
 
 =head1 SYNOPSIS
-
-Quick summary of what the module does.
-
-Perhaps a little code snippet.
-
-    use Carp::Clan::Share;
-
-    my $foo = Carp::Clan::Share->new();
-    ...
-
-=head1 EXPORT
-
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
-
-=head1 FUNCTIONS
-
-=head2 function1
-
-=cut
-
-sub function1 {
-}
-
-=head2 function2
-
-=cut
-
-sub function2 {
-}
 
 =head1 AUTHOR
 
