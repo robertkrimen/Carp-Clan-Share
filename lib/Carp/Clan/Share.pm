@@ -18,9 +18,9 @@ our $VERSION = '0.01';
 require Carp::Clan;
 
 sub import {
-    shift;
     my $caller = caller(0);
     my @arguments = @_;
+    shift @arguments; # Get rid of the package name
     $caller =~ s/::Carp$//; # If the user already named it Carp, use the parent of that.
     unshift @arguments, "^${caller}::";
 

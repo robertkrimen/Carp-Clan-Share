@@ -6,6 +6,8 @@ author   'Robert Krimen <rkrimen@cpan.org>';
 
 build_requires 'Test::More';
 
+requires 'Carp::Clan';
+
 auto_install;
 
 WriteAll;
