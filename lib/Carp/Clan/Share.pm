@@ -9,11 +9,11 @@ Carp::Clan::Share - Share your Carp::Clan settings with your whole Clan
 
 =head1 VERSION
 
-Version 0.011
+Version 0.012
 
 =cut
 
-our $VERSION = '0.011';
+our $VERSION = '0.012';
 
 require Carp::Clan;
 
@@ -138,7 +138,7 @@ L<http://search.cpan.org/dist/Carp-Clan-Share>
 
 =head1 COPYRIGHT & LICENSE
 
-Copyright 2008 Robert Krimen, all rights reserved.
+Copyright 2008 Robert Krimen
 
 This program is free software; you can redistribute it and/or modify it
 under the same terms as Perl itself.

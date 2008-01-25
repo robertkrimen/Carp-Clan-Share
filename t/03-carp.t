@@ -1,7 +1,8 @@
-#!perl -T
+#!perl
 
 use strict;
 use warnings;
+use lib qw/./;
 
 use Test::More qw/no_plan/;
 
