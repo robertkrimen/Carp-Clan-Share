@@ -11,9 +11,9 @@ use t::Pack;
 eval {
     &t::Pack::A::a;
 };
-like($@, qr/^t::Pack::A::a\(\): Break! at $0/);
+like($@, qr/^\Qt::Pack::A::a(): Break! at $0\E/);
 
 eval {
     &t::Pack::A::b;
 };
-like($@, qr/^t::Pack::A::b\(\): Break! at $0/);
+like($@, qr/^\Qt::Pack::A::b(): Break! at $0\E/);

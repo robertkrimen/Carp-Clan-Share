@@ -9,11 +9,11 @@ Carp::Clan::Share - Share your Carp::Clan settings with your whole Clan
 
 =head1 VERSION
 
-Version 0.012
+Version 0.013
 
 =cut
 
-our $VERSION = '0.012';
+our $VERSION = '0.013';
 
 require Carp::Clan;
 
@@ -88,7 +88,9 @@ as the target namespace
 
 =head1 SEE ALSO
 
-L<Carp::Clan>, L<Carp>
+L<Carp::Clan>
+
+L<Carp>
 
 =head1 AUTHOR
 
