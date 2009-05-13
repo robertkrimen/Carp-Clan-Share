@@ -2,7 +2,7 @@ NAME
     Carp::Clan::Share - Share your Carp::Clan settings with your whole Clan
 
 VERSION
-    Version 0.012
+    Version 0.013
 
 SYNOPSIS
         package My::Namespace
@@ -50,7 +50,9 @@ DESCRIPTION
         use My::Namespace::Carp; # Acts like "use Carp::Clan qw/^My::Namespace::/;"
 
 SEE ALSO
-    Carp::Clan, Carp
+    Carp::Clan
+
+    Carp
 
 AUTHOR
     Robert Krimen, "<rkrimen at cpan.org>"
