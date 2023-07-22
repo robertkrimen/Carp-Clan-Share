@@ -1,3 +1,10 @@
+BEGIN {
+    # dot is not in @INC in modern perls
+    unless (grep "." eq $_, @INC) {
+        push @INC, ".";
+    }
+}
+
 use inc::Module::Install;
 
 name     'Carp-Clan-Share';
