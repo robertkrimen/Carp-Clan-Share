@@ -12,7 +12,7 @@ BEGIN {
 
 use Test::More qw/no_plan/;
 
-use t::Pack qw/verbose/;
+use t::Pack;
 
 eval {
     &t::Pack::A::a;
